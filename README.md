@@ -1,2 +1,2 @@
-# InterviewPrep
-DS Algo Prep
+# Interview Prep
+DS Algo Prep by Muskan
