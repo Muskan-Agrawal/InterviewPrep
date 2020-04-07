@@ -4,9 +4,9 @@ public class CalculateShortestPath {
 	static int max=100;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int arr[][]=new int[][] {{1,2,6,13},{1,3,7,12},{1,4,7,11},{1,5,9,10}};
-		System.out.println("\n"+calpath(arr, 0, 0, 0));
-		System.out.println(max+arr[3][3]);
+		int arr[][]=new int[][] {{1,2,6,13},{10,3,7,12},{1,4,7,11},{1,5,9,10}};
+		calpath(arr, 0, 0, 0);
+		System.out.println("\n"+(max+arr[3][3]));
 		
 	}
 	static int calpath(int arr[][], int row, int col, int value) {
