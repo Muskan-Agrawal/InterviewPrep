@@ -11,8 +11,6 @@ public class CalculateShortestPath {
 	}
 	static int calpath(int arr[][], int row, int col, int value) {
 		if(row == arr.length-1 && col == arr[0].length-1) {
-			//final int x= value;
-			//int max=0;
 			if(max>value)
 				max=value;
 			System.out.print((arr[row][col]+value)+" ");
