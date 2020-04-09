@@ -1,33 +1,18 @@
-import java.io.*;
-
+//import java.io.*;
+package dsalgo.old;
 class subsetofString{
 	public static void main(String...k){
-		java.util.Scanner sc= new java.util.Scanner(System.in);
-		int size= sc.nextInt();
-		//OutputStream os = new FileOutputStream("test.txt"); 
-		String []arr= new String[size];
-		
-		System.out.println(arr.length);
-		//os.flush();
-		sc.nextLine();
-		for(int i=0; i<arr.length; i++){
-			arr[i]=sc.nextLine();
-		}
-		for(int i=0; i<arr.length; i++){
-			System.out.println(".."+arr[i]+"..");
-		}
-		String output[]= new String[size];
+		 
+		String []arr= new String[] {"acb", "as","gohn"};
+		String output[]= new String[arr.length];
 		subset(arr, 0, output, 0);
 	}
 	public static void subset(String []arr, int i, String []output, int j){
 		if(i==arr.length){
-			for(int k=0; k<output.length; k++){
-				if(output[k] != "null")
-					System.out.print(output[k]+ '\t');
+			for(int k=0; k<j; k++){
+				System.out.print(output[k]+ '\t');
 			}
-			System.out.println("");
-			if(j>0)
-			output[j-1]="null";
+			System.out.println();
 			return;
 		}
 		output[j]=arr[i];

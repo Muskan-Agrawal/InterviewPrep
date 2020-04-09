@@ -4,7 +4,7 @@ public class CalulatePath {
 
 	public static void main(String[] args) {
 		int arr[][] = new int[3][3];
-		System.out.println(calPath(arr, 0, 0));
+		System.out.println("possible ways:"+calPath(arr, 0, 0));
 	}
 	public static int calPath(int [][]arr, int row, int coloumn) {
 		if(row == arr.length-1 && coloumn == arr[0].length-1)
