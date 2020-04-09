@@ -1,6 +1,6 @@
 package dsalgo.recursion;
 
-public class CalculateShortestPath {
+public class CalculateLargestPath {
 	static int count=1;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
