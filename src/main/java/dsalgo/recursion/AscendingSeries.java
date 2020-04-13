@@ -15,18 +15,17 @@ public class AscendingSeries {
 		if(arr_index == arr.length){    
 			int k=0;
 			for( k=0; k<op_index && k+1<op.length; k++){
-				if(op[k]<op[k+1])
-					System.out.print(op[k]+"\t");
-				else
-					continue;
+				System.out.print(op[k]+"\t");
 			}
-			System.out.println(op[k]);
+			System.out.println();
 			
 			return ; 
 		}
-		op[op_index]=arr[arr_index];
-		ascendingseries(arr, arr_index+1, op, op_index+1);
-		
+	
+		if(op_index==0 || op[op_index-1]<arr[arr_index]) {
+			op[op_index]=arr[arr_index];
+			ascendingseries(arr, arr_index+1, op, op_index+1);
+		}
 		ascendingseries(arr, arr_index+1, op, op_index);
 	}
 
