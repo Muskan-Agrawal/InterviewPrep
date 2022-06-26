@@ -2,11 +2,17 @@ package dsalgo.liststackqueue;
 
 public class Node {
 
-	int data;
-	Node next ;
-	Node(int d){
+	public int data;
+	public Node next ;
+	public Node(int d){
 		data=d;
 		next = null;
 	}
-
+	
+	public void printList(Node node) {
+		while(node != null) {
+			System.out.print(node.data+"->");
+			node = node.next;
+		}
+	}
 }
