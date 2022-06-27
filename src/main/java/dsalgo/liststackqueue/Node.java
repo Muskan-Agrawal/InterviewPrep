@@ -10,6 +10,7 @@ public class Node {
 	}
 	
 	public void printList(Node node) {
+		System.out.print("\n List: ");
 		while(node != null) {
 			System.out.print(node.data+"->");
 			node = node.next;
