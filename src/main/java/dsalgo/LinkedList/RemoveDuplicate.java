@@ -16,7 +16,7 @@ public class RemoveDuplicate {
 		node.next.next.next.next.next = new Node(5);
 		node.next.next.next.next.next.next = new Node(7);
 		
-		System.out.println("Before: ");
+		System.out.print("Before: ");
 		node.printList(node);
 		
 		node = RemoveDuplicate.removeDuplicate(node);
