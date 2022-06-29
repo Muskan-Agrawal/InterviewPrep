@@ -30,6 +30,7 @@ public class RemoveDuplicate {
 		Hashtable<Integer, Integer> hash = new Hashtable<Integer, Integer>();
 		
 		while(current != null) {
+			//if the hashtable will have the current node's data mean its already present earlier. so remove it, else add into hashtable
 			if(hash.containsKey(current.data)) {
 				prev.next = current.next;
 				current.next = null;
