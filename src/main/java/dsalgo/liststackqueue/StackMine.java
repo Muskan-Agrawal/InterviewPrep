@@ -1,19 +1,19 @@
 package dsalgo.liststackqueue;
 
 import java.util.*;
-public class StackMine {
+public class StackMine<T> {
 	Node top;
 	class Node{
-		char data;
+		T data;
 		Node next;
-		Node(char d){
+		Node(T d){
 			data=d;
 			next=null;
 		}
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		StackMine stack = new StackMine();
+		StackMine<Character> stack = new StackMine<Character>();
 		stack.push('5');
 		stack.display();
 		stack.push('6');
@@ -26,38 +26,34 @@ public class StackMine {
 		stack.push('{');
 	}
 	
-	void push(char data) {
-		
+	protected void push(T data) {
 		Node newnode = new Node(data);
-		
-	
 		newnode.next = top;
-		
 		top = newnode;
 	}
 	
-	char pop() {
-		if(top == null) {
+	public T pop() {
+		if(isEmpty()) {
 			throw new EmptyStackException();
 		}
 		
-		char data = top.data;
+		T data = top.data;
 		top = top.next;
 		
 		return data;
 	}
 	
-	char peek() {
+	public T peek() {
 		if(top == null) {
 			throw new EmptyStackException();
 		}
 		return top.data;
 	}
-	void display() {
-		if(top == null) {
+	
+	public void display() {
+		if(isEmpty()) {
 			System.out.println("No Elemenst");
 			return;
-			
 		}
 		System.out.println("Stack: ");
 		Node current = top;
@@ -67,4 +63,9 @@ public class StackMine {
 		}
 	}
 
+	public boolean isEmpty() {
+		if(top == null)
+			return true;
+		return false;
+	}
 }
