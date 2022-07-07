@@ -1,11 +1,9 @@
 package dsalgo.tree;
 
-import dsalgo.tree.BinarySearchTree.Node;
 import java.util.*;
 public class InorderTraversal {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Node root = new Node(10);
 		BinarySearchTree bst = new BinarySearchTree();
 		bst.insert(root,  0);
@@ -17,10 +15,12 @@ public class InorderTraversal {
 		bst.insert(root,  -7);
 		bst.insert(root,  11);
 		
+		InorderTraversal inorder = new InorderTraversal();
 		System.out.print("\nInorder Traversal: ");
-		inorder(root);
+		inorder.traverseInorder(root);
 	}
-	public static void inorder(Node node) {
+	
+	public void traverseInorder(Node node) {
 		Stack<Node> stack = new Stack<Node>();
 		//stack.push(node);
 		Node cur = node;
@@ -31,9 +31,8 @@ public class InorderTraversal {
 			}
 			
 			cur = stack.pop();
-			System.out.print(" "+cur.value);
+			System.out.print(cur.value+" ");
 			cur = cur.right;
 		}
 	}
-
 }

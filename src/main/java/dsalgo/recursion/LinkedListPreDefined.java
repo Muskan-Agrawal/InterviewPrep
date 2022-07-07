@@ -4,6 +4,7 @@ import java.util.*;
 
 public class LinkedListPreDefined implements Cloneable {
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		LinkedList<Integer> ll= new LinkedList<Integer>();
 		
@@ -45,7 +46,7 @@ public class LinkedListPreDefined implements Cloneable {
 		
 		//to create copy of the list
 		LinkedList<Integer> ll2= new LinkedList<Integer>();
-		ll2 = (LinkedList<Integer>)ll.clone();
+		ll2 = (LinkedList<Integer>) ll.clone();
 		System.out.println(ll2);
 		//while cloning, shallow copy of elements are passed... no change in value like when passing refernce
 		

@@ -7,7 +7,6 @@ import dsalgo.liststackqueue.Node;
 public class MergeSortedLists {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Node node = new Node(1);
 		node.next= new Node(5);
 		node.next.next = new Node(6);
@@ -31,10 +30,11 @@ public class MergeSortedLists {
 		node.printList(sortedList);
 	}
 	
+	// TODO correct logic
 	public static Node sortKLists (ArrayList<Node> list) {
 		Node newList = new Node(list.get(0).data);
-		Node minNode;
-		int minIndex = 0;
+//		Node minNode;
+//		int minIndex = 0;
 		
 		// to be checked
 //		

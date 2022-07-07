@@ -1,56 +1,48 @@
 package dsalgo.liststackqueue;
 
-
+import java.util.Stack;
 
 public class QueueUsing2Stack extends StackMine<Integer>{
-
+	Stack<Integer> stack1 = new Stack<Integer>();
+	Stack<Integer> stack2 = new Stack<Integer>();
+	
 	public static void main(String[] args) {
-		StackMine<Integer> en_stack = new StackMine<Integer>();
-		StackMine<Integer> de_stack = new StackMine<Integer>();
-		
 		QueueUsing2Stack q = new QueueUsing2Stack();
-		q.enqueue(en_stack, 5);
-		q.enqueue(en_stack, 6);
-		q.enqueue(en_stack, 7);
-		q.enqueue(en_stack, 8);
-		q.display(en_stack, de_stack);
-		q.dequeue(en_stack, de_stack);
-		q.dequeue(en_stack, de_stack);
-		q.display(en_stack, de_stack);
-		q.enqueue(en_stack, 9);
-		q.enqueue(en_stack, 10);
-		q.display(en_stack, de_stack);
+		q.enqueue(1);
+		q.enqueue(2);
+		q.enqueue(3);
+		q.enqueue(4);
+		
+		System.out.println("Dequeue: "+q.dequeue());
+		System.out.println("Dequeue: "+q.dequeue());
+		System.out.println("Dequeue: "+q.dequeue());
+		System.out.println("Dequeue: "+q.dequeue());
+		System.out.println("Dequeue: "+q.dequeue());
 
-	}
-	void enqueue(StackMine<Integer> en_stack, int data) {
-		en_stack.push(data);
 	}
 	
-	int dequeue(StackMine<Integer> en_stack, StackMine<Integer> de_stack) {
-		if( de_stack.isEmpty()) {
-			while(! en_stack.isEmpty()) {
-				de_stack.push(en_stack.pop());
+	//if stack1 is having data, pop from there
+	//if stack1 is empty, pop everything from stack2 and push into stack1. the data in satck1 will be in fifo order then.
+	int dequeue() {
+		if(stack1.isEmpty()) {
+			if(stack2.isEmpty()) {
+				System.err.print("Stack Underflow!");
+				return -1;
+			}
+			while(!stack2.isEmpty()) {
+				stack1.push(stack2.pop());
 			}
 		}
-		return de_stack.pop();	
+		return stack1.pop();
 	}
-	void display() {
-		if(top == null) {
-			System.out.println("-");
-			return;
-			
+	
+	//if stack1 is empty, push into that stack
+	//else push every time in stack2
+	void enqueue(int data) {
+		if(stack1.isEmpty()) {
+			stack1.push(data);
 		}
-		
-		Node current = top;
-		while(current != null) {
-			System.out.print(current.data+"\t");
-			current = current.next;
-		}
-	}
-	void display(StackMine<Integer> en_stack, StackMine<Integer> de_stack) {
-		System.out.println("Stack: ");
-		en_stack.display();
-		de_stack.display();
-		
+		else
+			stack2.push(data);
 	}
 }

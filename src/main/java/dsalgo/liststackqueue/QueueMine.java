@@ -1,6 +1,5 @@
 package dsalgo.liststackqueue;
 
-import dsalgo.liststackqueue.Node;
 public class QueueMine {
 	Node first = null;
 	Node last = null;

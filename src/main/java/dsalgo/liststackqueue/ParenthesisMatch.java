@@ -3,20 +3,22 @@ package dsalgo.liststackqueue;
 public class ParenthesisMatch {
 
 	public static void main(String[] args) {
-		String s = "[abc{de(fgh)}]";
+		StringBuilder s = new StringBuilder("[abc{de(fgh)}]");
+		System.out.println(parenthesis(s, 0, s.length()-1));
+		s = new StringBuilder("[{()}]");
+		System.out.println(parenthesis(s, 0, s.length()-1));
+		s = new StringBuilder("[)}]");
 		System.out.println(parenthesis(s, 0, s.length()-1));
 	}
-	static boolean parenthesis(String s, int start, int end) {
+	static boolean parenthesis(StringBuilder s, int start, int end) {
 		if(start >= end) {
 			return true;
 		}
 		
 		while(s.charAt(start) >=97 && s.charAt(start) <= 122 ) {
-			System.out.print("while 1"+s.charAt(start)+'\t');
 			start++;
 		}
 		while(s.charAt(end) >= 97 && s.charAt(end) <= 122 ) { 
-			System.out.print("while 2"+s.charAt(end)+'\t'); 
 			end--; 
 		} 
 		
@@ -31,7 +33,6 @@ public class ParenthesisMatch {
 				return true;
 		}
 			
-		System.out.println(s.substring(start, end)+start+end);
 		if((s.charAt(start) == '[' && s.charAt(end) == ']') 
 				|| (s.charAt(start) == '{' && s.charAt(end) == '}') 
 				|| (s.charAt(start) == '(' && s.charAt(end) == ')')) {

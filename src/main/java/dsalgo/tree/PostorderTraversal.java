@@ -1,6 +1,5 @@
 package dsalgo.tree;
 
-import dsalgo.tree.BinarySearchTree.Node;
 import java.util.*;
 public class PostorderTraversal {
 
@@ -17,11 +16,12 @@ public class PostorderTraversal {
 		bst.insert(root,  -7);
 		bst.insert(root,  11);
 		
+		PostorderTraversal p = new PostorderTraversal();
 		System.out.print("\nPostorder: ");
-		postorder(root);
+		p.traversePostorder(root);
 		
 	}
-	public static void postorder(Node node) {
+	public void traversePostorder(Node node) {
 		Stack<Node> temp = new Stack<Node>();
 		Stack<Node> res = new Stack<Node>();
 		Node cur = node;

@@ -33,6 +33,7 @@ public class StackMin<T> extends StackMine<T> {
 		s.push(stack,5);
 		s.push(stack,2);
 		s.push(stack,1);
+		System.out.print("Minimum:"+minEle);
 		s.push(stack,1);
 		s.push(stack,-1);
 		
@@ -53,9 +54,9 @@ public class StackMin<T> extends StackMine<T> {
 		}
 		else {
 			if(data<minEle) {
-				int prevMin = minEle;
+				//int prevMin = minEle;
 				minEle = data;
-				data = 2*data-prevMin;
+				data = 2*data-minEle;
 			}
 			s.push(data);
 		}
@@ -66,8 +67,9 @@ public class StackMin<T> extends StackMine<T> {
 			return -1;
 		int val = s.pop();
 		if(val < minEle) {
-			val = 2*minEle - val;
-			minEle = val; 
+			int v = minEle;
+			minEle = 2*minEle - val;
+			return v;
 		}
 		return val;
 	}

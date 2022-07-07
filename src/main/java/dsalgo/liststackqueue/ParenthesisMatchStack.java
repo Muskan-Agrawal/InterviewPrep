@@ -1,49 +1,58 @@
 package dsalgo.liststackqueue;
 
-import dsalgo.liststackqueue.StackMine;
+import java.util.Stack;
 
 public class ParenthesisMatchStack {
-	static StackMine par = new StackMine();
+	
+	static Stack<Character> par = new Stack<Character>();
+	
 	public static void main(String[] args) {
 		String s = "[abc{de(fgh)}]";
-		System.out.println(parenthesis(s));
+		System.out.println(isParenthesisBalanced(s));
+		s = "[a)}]";
+		System.out.println(isParenthesisBalanced(s));
+		s = "[{()}]";
+		System.out.println(isParenthesisBalanced(s));
 	}
-	static boolean parenthesis(String s) {
-		if(s.length() <= 0) {
+	
+	static boolean isParenthesisBalanced(String s) {
+		if(s == null) {
+			return false;
+		}
+		
+		Stack<Character> stack = new Stack<Character>();
+		int i = 0;
+		
+		while(s.length() > i) {
+			//if opening braces, push into stack
+			if(s.charAt(i) == '['
+					|| s.charAt(i) == '('
+					|| s.charAt(i) == '{') {
+				stack.push(s.charAt(i));
+			}
+			
+			//if closing braces, check stack top, if opening brace in top of the stack, okay else return false
+			else if(s.charAt(i) == '}') {
+				if(stack.peek() != '{')
+					return false;
+				stack.pop();
+			}
+			else if(s.charAt(i) == ']') {
+				if(stack.peek() != '[')
+					return false;
+				stack.pop();
+			}
+			else if(s.charAt(i) == ')') {
+				if(stack.peek() != '(')
+					return false;
+				stack.pop();
+			}
+			
+			i++;
+		}
+		if(stack.isEmpty())
 			return true;
-		}
-		
-		if(s.charAt(0) == '(' || s.charAt(0) == '{' || s.charAt(0) == '[') {
-			par.push(s.charAt(0));
-			return parenthesis(s.substring(1));
-		}
-		//()
-		if(s.charAt(0) == ')') {
-			if(par.pop() == '(') {
-				return parenthesis(s.substring(1));
-			}
-			else
-				return false;
-		}
-		//{}
-		else if(s.charAt(0) == '}') {
-			if(par.pop() == '{') {
-				return parenthesis(s.substring(1));
-			}
-			else
-				return false;
-		}
-		//[]
-		else if(s.charAt(0) == ']') {
-			if(par.pop() == '[') {
-				return parenthesis(s.substring(1));
-			}
-			else
-				return false;
-		}
-		
-		
-		return parenthesis(s.substring(1));
+		return false;
 	}
 }
 

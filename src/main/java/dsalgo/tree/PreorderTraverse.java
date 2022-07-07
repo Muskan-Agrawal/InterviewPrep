@@ -1,8 +1,7 @@
 package dsalgo.tree;
 
+import java.util.Stack;
 
-import dsalgo.tree.BinarySearchTree.Node;
-import java.util.*;
 public class PreorderTraverse {
 
 	public static void main(String[] args) {
@@ -19,9 +18,9 @@ public class PreorderTraverse {
 		bst.insert(root,  11);
 		
 		System.out.print("\nPreorder Traversing: ");
-		preorder(root);
+		traversePreorder(root);
 	}
-	public static void preorder(Node node) {
+	public static void traversePreorder(Node node) {
 		Stack<Node> stack = new Stack<Node>();
 		stack.push(node);
 		
@@ -33,8 +32,7 @@ public class PreorderTraverse {
 				stack.push(cur.right);
 			
 			if(cur.left != null)
-				stack.push(cur.left);
-			
+				stack.push(cur.left);	
 		}
 	}
 
